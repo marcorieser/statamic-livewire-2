@@ -33,8 +33,14 @@
     </div>
 
     <script>
-    document.addEventListener('livewire:load', function () {
-        {{ livewire:this title=" = {livewire:this title=''} + ' (modified by JS)'" }}
-    })
+        document.addEventListener('livewire:load', function () {
+            {{ livewire:this title=" = {livewire:this title=''} + ' (modified by JS)'" }}
+
+            let newTitle = {{ livewire:this get="('title')" }} +' (modified by JS)';
+            {{ livewire:this title=" = newTitle + ' (modified by JS)'" }}
+
+            let anotherTitle = {{ livewire:this get="('title')" }} +' (modified by JS)';
+            {{ livewire:this set="('title', anotherTitle )" }}
+        })
     </script>
 </div>
